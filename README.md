@@ -84,6 +84,8 @@ An initial feasibility-masked Deep Q-Network (DQN) implementation has been devel
 
 The effectiveness of adaptive joint-resource allocation remains to be established experimentally.
 
+The formal design is documented in [Chapter 11 – Mathematical Specification (PDF)](docs/formulation/Open_World_AI_Chapter_11_Mathematical_Specification_Updated.pdf).
+
 ## 6. Dataset and Experimental Setting
 
 The preliminary experimental work uses the **UCI Gas Sensor Array Drift dataset**.
@@ -99,6 +101,8 @@ Current experimental constraints include:
 - Multiple random seeds for experimental consistency.
 
 The current evaluation covers six known classes. Genuine unknown-class discovery has not yet been established in these experiments.
+
+The dataset itself and generated model checkpoints are not included in the source-code upload. Their absence limits out-of-the-box reproduction of some data- and checkpoint-dependent runs.
 
 ## 7. Experimental Progress
 
@@ -175,15 +179,72 @@ The next phase is intended to investigate:
 
 These are planned investigations, not completed results.
 
-## 10. Reproducibility and Project Materials
+## 10. Repository Structure
 
-This repository is being organized as the public research home for the project.
+The repository contains the initial implementation, experiment runners, tests, research reports, and mathematical documentation.
 
-Code, experiment configurations, analysis scripts, result artifacts, and documentation will be added after review and verification.
+| Path | Contents |
+|---|---|
+| `src/` | Core resource managers, state construction, memory utilities, DQN agents, training loops, and environment code |
+| `experiments/` | E1–E5 experiment and analysis scripts, including E5-B compute-budget calibration |
+| `tests/` | Unit and integration tests for agents, environment, memory, resource management, and training |
+| `research/` | E1–E4 research reports |
+| `docs/formulation/` | Research problem formulation and Chapter 11 mathematical specification |
+| `config.py` | Project configuration |
+| `requirements.txt` | Runtime dependencies |
+| `requirements-dev.txt` | Development and test dependencies |
 
-Until those materials are published, this README should be treated as a research overview rather than a complete reproducibility package.
+The repository is a source-code and documentation snapshot. Dataset files, generated checkpoints, and the full experiment-result directories have not been included in this upload.
 
-## 11. Research Interests
+## 11. Environment Setup
+
+The dependency versions used for the local validation run were Python 3.14.10, NumPy 2.5.4, PyTorch 2.15.0+cpu, and pytest 9.2.0.
+
+Create and activate a virtual environment (Windows PowerShell):
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements-dev.txt
+```
+
+On other operating systems, activate the virtual environment using the appropriate command for that shell.
+
+## 12. Test Status
+
+The uploaded test suite was run locally with the following command:
+
+```powershell
+python -m pytest -q
+```
+
+In the validation run performed before this code upload:
+
+- 277 tests passed.
+- 59 subtests passed.
+- 2 checkpoint-dependent tests could not be completed because the required checkpoint file was not included in the repository.
+
+The two tests were therefore deselected for the passing test run:
+
+```powershell
+python -m pytest -q --deselect=tests/test_environment_prediction_checkpoint.py::TestRealPredictionStateIntegration::test_real_checkpoint_to_encoded_state --deselect=tests/test_real_prediction_dqn.py::TestRealPredictionDQN::test_real_checkpoint_to_dqn
+```
+
+That run reported **277 passed, 2 deselected, 59 subtests passed**. This is a record of the local validation environment, not a guarantee that every environment or dependency combination will produce the same result.
+
+## 13. Reproducibility Notes
+
+The experiment scripts are published, but a complete clean-machine reproduction package is not yet available. Reproduction requires, at minimum:
+
+- Access to the specified dataset and the expected data layout.
+- Any experiment-specific configuration and initialization assets.
+- Generated checkpoints for tests and runs that explicitly depend on them.
+- Matching dependency versions and execution settings.
+
+Do not interpret the published scripts or reported results as independently reproducible from this repository alone. Reproduction instructions and the required data/checkpoint handling will be documented as those materials are prepared and verified.
+
+## 14. Research Interests
 
 Continual Learning · Open-World Learning · Active Learning · Reinforcement Learning · Uncertainty Estimation · Resource-Aware AI
 

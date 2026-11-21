@@ -6,7 +6,7 @@ This directory will contain the technical documentation for **Open-World AI: Res
 
 The following materials are intended to be added after review and verification:
 
-1. **Problem Formulation** — Research problem, assumptions, state, actions, constraints, and objectives.
+1. **[Problem Formulation](formulation/README.md)** — Research problem, assumptions, state, actions, constraints, and objectives.
 2. **Mathematical Specification** — Formal sequential decision formulation and resource-budget definitions.
 3. **Experimental Protocols** — Dataset setup, evaluation methodology, baselines, and reproducibility details.
 4. **Experimental Results** — Verified results, statistical analysis, and limitations.

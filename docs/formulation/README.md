@@ -18,9 +18,15 @@ The project formulates these resource decisions as interconnected sequential dec
 
 The research investigates whether a state-dependent policy coordinating all three decisions can improve long-term learning and resource-use trade-offs.
 
-## Formal Specification
+## Mathematical Specification
 
-The detailed mathematical specification, including state representation, action space, transition assumptions, feasibility constraints, and objective function, will be published here after final review.
+The current V1.0 working specification is available here:
+
+[**Chapter 11 – Mathematical Specification (PDF)**](Open_World_AI_Chapter_11_Mathematical_Specification_Updated.pdf)
+
+It covers the state representation, joint action space, transition dynamics, reward and objective, resource constraints, feasibility-masked DQN formulation, optimization procedure, and evaluation criteria.
+
+This is a formal design specification; it does not by itself establish the effectiveness of the adaptive policy.
 
 ## Current Status
 

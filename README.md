@@ -90,7 +90,7 @@ The formal design is documented in [Chapter 11 – Mathematical Specification (P
 
 The preliminary experimental work uses the **UCI Gas Sensor Array Drift dataset**.
 
-The dataset contains a sequential stream with 10 batches, 6 known classes, and 10,015 observations.
+The dataset contains a sequential stream with 10 batches, 6 known classes, and 13,910 observations, consistent with the ten batch sizes recorded in the E2 audit. The source is the [UCI Gas Sensor Array Drift Dataset](https://archive.ics.uci.edu/dataset/224/gas%2Bsensor%2Barray%2Bdrift%2Bdataset) (Vergara, 2012; DOI: [10.24432/C5RP6W](https://doi.org/10.24432/C5RP6W)).
 
 Current experimental constraints include:
 

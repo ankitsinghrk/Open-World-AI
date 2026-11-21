@@ -29,6 +29,7 @@ data/raw/
 checkpoints/
 runs/
 wandb/
+experiments/results/
 
 # Operating system and editor files
 .DS_Store
